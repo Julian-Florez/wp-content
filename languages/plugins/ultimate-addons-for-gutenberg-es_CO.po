@@ -1,0 +1,575 @@
+# Translation of Plugins - Spectra Gutenberg Blocks – Website Builder for the Block Editor - Stable (latest release) in Spanish (Colombia)
+# This file is distributed under the same license as the Plugins - Spectra Gutenberg Blocks – Website Builder for the Block Editor - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-06-01 06:48:39+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: es_CO\n"
+"Project-Id-Version: Plugins - Spectra Gutenberg Blocks – Website Builder for the Block Editor - Stable (latest release)\n"
+
+#: includes/blocks/masonry-gallery/block.php:13
+#: admin-core/assets/build/dashboard-app.js:4
+msgid "Masonry Gallery"
+msgstr "Galería de muro"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:1567
+msgid "Star"
+msgstr "Estrella"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:5150
+msgid "Safari"
+msgstr "Safari"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:2579
+msgid "Opera"
+msgstr "Opera"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:944
+msgid "Linux"
+msgstr "Linux"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:4763
+msgid "Windows"
+msgstr "Windows"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-0.php:417
+msgid "Android"
+msgstr "Android"
+
+#: classes/class-uagb-onboarding.php:113 lib/one-onboarding/build/main.js:22
+msgid "Privacy Policy"
+msgstr "Política de privacidad"
+
+#: classes/class-uagb-onboarding.php:482 lib/one-onboarding/build/main.js:1
+msgid "Last Name"
+msgstr "Apellidos"
+
+#: classes/class-uagb-onboarding.php:478 lib/one-onboarding/build/main.js:1
+msgid "First Name"
+msgstr "Nombre"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:5210
+msgid "Design"
+msgstr "Diseño"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-0.php:4892
+msgid "Comments"
+msgstr "Comentarios"
+
+#: includes/blocks/forms-accept/block.php:14
+msgid "Accept"
+msgstr "Aceptación"
+
+#: includes/blocks/forms-date/block.php:14
+msgid "Datepicker"
+msgstr "Selector de fecha"
+
+#: includes/blocks/forms-toggle/block.php:14
+msgid "Toggle"
+msgstr "Conmutador"
+
+#: blocks-config/taxonomy-list/class-uagb-taxonomy-list.php:716
+#: includes/blocks/forms-select/block.php:15
+msgid "Select"
+msgstr "Selección"
+
+#: includes/blocks/forms-checkbox/block.php:14
+msgid "Checkbox"
+msgstr "Casilla de verificación"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:1680
+msgid "Message"
+msgstr "Mensaje"
+
+#: includes/blocks/forms-textarea/block.php:14
+msgid "Textarea"
+msgstr "Área de texto"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:3661
+#: includes/blocks/forms-phone/block.php:14
+msgid "Phone"
+msgstr "Teléfono"
+
+#: includes/blocks/forms-hidden/block.php:14
+msgid "Hidden"
+msgstr "Oculto"
+
+#: includes/blocks/forms/attributes.php:174
+#: includes/blocks/forms/frontend.js.php:51
+msgid "Please fill up the above captcha."
+msgstr "Por favor, completa el captcha de arriba."
+
+#: includes/blocks/forms/attributes.php:127
+msgid "There has been some error while submitting the form. Please verify all form fields again."
+msgstr "Ha ocurrido algún error al enviar el formulario. Por favor, revisa de nuevo todos los campos."
+
+#: blocks-config/forms/class-uagb-forms.php:434
+#: includes/blocks/forms/attributes.php:70
+#: includes/blocks/forms/frontend.js.php:47
+msgid "Form Submission"
+msgstr "Envío del formulario"
+
+#: includes/blocks/forms/attributes.php:41
+msgid "The form has been submitted Successfully!"
+msgstr "¡El mensaje ha sido enviado correctamente!"
+
+#: includes/blocks/forms/attributes.php:35 lib/nps-survey/dist/main.js:1
+msgid "Submit"
+msgstr "Enviar"
+
+#: includes/blocks/tabs-child/block.php:14
+msgid "Tabs child"
+msgstr "Pestañas hijas"
+
+#: includes/blocks/tabs/block.php:16 admin-core/assets/build/dashboard-app.js:3
+#: dist/blocks-placeholder.js:42
+msgid "Tabs"
+msgstr "Pestañas"
+
+#: includes/blocks/post-image/block.php:14
+msgid "Post Image"
+msgstr "Imagen de la entrada"
+
+#: includes/blocks/post-meta/block.php:14
+msgid "Post Meta"
+msgstr "Meta de la entrada"
+
+#: includes/blocks/post-excerpt/block.php:15
+msgid "Post Excerpt"
+msgstr "Extracto de la entrada"
+
+#: includes/blocks/post-button/block.php:14
+msgid "Post Button"
+msgstr "Botón de la entrada"
+
+#: includes/blocks/post-title/block.php:15
+msgid "Post Title"
+msgstr "Título de la entrada"
+
+#: includes/blocks/content-timeline-child/block.php:14
+msgid "Content Timeline Child"
+msgstr "Cronología de contenidos hija"
+
+#: classes/class-uagb-admin.php:196
+msgid "Error occurred, The version selected is invalid. Try selecting different version."
+msgstr "Ha ocurrido un error. La versión seleccionada no es válida. Prueba a seleccionar una versión diferente."
+
+#: classes/class-uagb-admin.php:183 classes/class-uagb-admin.php:214
+#: admin-core/assets/build/dashboard-app.js:4
+#: admin-core/assets/build/dashboard-app.js:5
+msgid "Rollback to Previous Version"
+msgstr "Volver a una versión anterior"
+
+#: classes/class-uagb-admin.php:112 classes/class-uagb-admin.php:182
+msgid "You do not have permission to access this page."
+msgstr "No tienes permisos para acceder a esta página."
+
+#: admin-core/inc/admin-menu.php:122 classes/class-uagb-onboarding.php:332
+msgid "Starter Templates"
+msgstr "Plantillas de inicio"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:4398
+#: includes/blocks/forms-radio/block.php:14
+msgid "Radio"
+msgstr "Casilla de selección única"
+
+#: includes/blocks/restaurant-menu-child/block.php:14
+msgid "Price List-Child"
+msgstr "Precio de la lista hija"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-0.php:2588
+msgid "Buffer"
+msgstr "Buffer"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:4994
+msgid "Xing"
+msgstr "Xing"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:4594
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:2275
+msgid "Telegram"
+msgstr "Telegram"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:764
+msgid "Skype"
+msgstr "Skype"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:2491
+msgid "Odnoklassniki"
+msgstr "Odnoklassniki"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:4286
+msgid "VK"
+msgstr "VK"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:966
+msgid "List"
+msgstr "Lista"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:632
+msgid "Language"
+msgstr "Idioma"
+
+#: includes/blocks/taxonomy-list/block.php:16 dist/blocks-placeholder.js:43
+msgid "Taxonomy List"
+msgstr "Lista de taxonomías"
+
+#: blocks-config/taxonomy-list/class-uagb-taxonomy-list.php:121
+#: includes/blocks/taxonomy-list/attributes.php:92
+msgid "Taxonomy Not Available."
+msgstr "Taxonomía no disponible."
+
+#: includes/blocks/wp-search/block.php:16
+msgid "Search"
+msgstr "Buscar"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:4310
+msgid "Question"
+msgstr "Pregunta"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-1.php:1330
+msgid "Expand"
+msgstr "Ampliar"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:577
+msgid "L"
+msgstr "L"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:1142
+msgid "M"
+msgstr "M"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:5117
+msgid "S"
+msgstr "S"
+
+#: blocks-config/faq/class-uagb-faq.php:1126
+#: blocks-config/faq/class-uagb-faq.php:1157
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
+#: blocks-config/faq/class-uagb-faq.php:1122
+#: blocks-config/faq/class-uagb-faq.php:1153
+msgid "What is FAQ?"
+msgstr "¿Qué son las preguntas frecuentes?"
+
+#: lib/bsf-analytics/class-bsf-analytics.php:550
+msgid " This will be applicable for all sites from the network."
+msgstr " Esto será aplicable a todos los sitios de la red."
+
+#: lib/bsf-analytics/class-bsf-analytics.php:502
+msgid "Usage Tracking"
+msgstr "Seguimiento de uso"
+
+#: lib/bsf-analytics/class-bsf-analytics.php:279
+msgid "This will be applicable for all sites from the network."
+msgstr "Esto será aplicable a todos los sitios de la red."
+
+#: includes/blocks/inline-notice/block.php:16 dist/blocks-placeholder.js:25
+msgid "Inline Notice"
+msgstr "Aviso integrado"
+
+#: includes/blocks/social-share-child/block.php:14
+msgid "Social Share Child"
+msgstr "Compartir social hijo"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-0.php:2088
+msgid "Book"
+msgstr "Libro"
+
+#: blocks-config/table-of-content/class-uagb-table-of-content.php:703
+#: blocks-config/table-of-content/class-uagb-table-of-content.php:707
+#: includes/blocks/table-of-contents/attributes.php:18
+#: dist/blocks-placeholder.js:41
+msgid "Table Of Contents"
+msgstr "Tabla de contenidos"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:3401
+msgid "Underline"
+msgstr "Subrayado"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-0.php:2335
+msgid "Box"
+msgstr "Caja"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:2176
+msgid "Tag"
+msgstr "Etiqueta"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:2648
+msgid "Timeline"
+msgstr "Cronología"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:2645
+msgid "P"
+msgstr "P"
+
+#: classes/class-uagb-onboarding.php:486
+#: includes/blocks/forms-email/block.php:14 lib/one-onboarding/build/main.js:1
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:3192
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-0.php:1978
+msgid "Blogger"
+msgstr "Blogger"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:3804
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:911
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-1.php:2004
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/blocks/forms-url/block.php:15
+msgid "URL"
+msgstr "URL"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:3269
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:3280
+msgid "Twitter"
+msgstr "Twitter"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:1137
+#: lib/zipwp-images/dist/main.js:1
+msgid "Square"
+msgstr "Cuadrado"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-0.php:3950
+msgid "Circle"
+msgstr "Círculo"
+
+#: includes/blocks/forms-name/block.php:14
+msgid "Name"
+msgstr "Nombre"
+
+#: includes/blocks/icon-list-child/block.php:14
+#: includes/blocks/icon/block.php:16
+#: lib/bsf-analytics/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php:105
+#: dist/blocks-placeholder.js:21
+msgid "Icon"
+msgstr "Ícono"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:1587
+msgid "Medium"
+msgstr "Mediano"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:1878
+msgid "Mobile"
+msgstr "Móvil"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:2121
+msgid "Tablet"
+msgstr "Tableta"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-1.php:286
+msgid "Desktop"
+msgstr "Escritorio"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:889
+msgid "Link"
+msgstr "Link"
+
+#: admin-core/inc/admin-menu.php:303 admin-core/inc/admin-menu.php:397
+#: admin-core/assets/build/dashboard-app.js:3
+#: admin-core/assets/build/dashboard-app.js:21
+msgid "Settings"
+msgstr "Ajustes"
+
+#: includes/blocks/buttons-child/block.php:14
+msgid "Button"
+msgstr "Botón"
+
+#: blocks-config/popup-builder/class-uagb-popup-builder.php:235
+msgid "Type"
+msgstr "Tipo"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-2.php:4655
+msgid "Repeat"
+msgstr "Repetir"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:209
+msgid "Scroll"
+msgstr "Scroll"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:4154
+msgid "Video"
+msgstr "Video"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-1.php:5466
+#: includes/blocks/image/block.php:16 dist/blocks-placeholder.js:23
+msgid "Image"
+msgstr "Imagen"
+
+#: classes/class-uagb-fse-fonts-compatibility.php:165
+#: classes/class-uagb-init-blocks.php:1181
+msgid "Default"
+msgstr "Por defecto"
+
+#: classes/class-uagb-init-blocks.php:1355 classes/class-uagb-rest-api.php:319
+#: classes/class-uagb-rest-api.php:334
+msgid "None"
+msgstr "Ninguno"
+
+#: includes/blocks/separator/block.php:16 dist/blocks-placeholder.js:37
+msgid "Separator"
+msgstr "Separador"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-1.php:4567
+#: includes/blocks/advanced-heading/block.php:16 dist/blocks-placeholder.js:9
+msgid "Heading"
+msgstr "Encabezado"
+
+#: blocks-config/table-of-content/class-uagb-table-of-content.php:991
+#: includes/blocks/table-of-contents/attributes.php:19
+msgid "Add a header to begin generating the table of contents"
+msgstr "Añade un encabezado para empezar a generar la tabla de contenido"
+
+#: blocks-config/popup-builder/class-uagb-popup-builder.php:236
+msgid "Author"
+msgstr "Autor"
+
+#: includes/blocks/table-of-contents/block.php:16
+msgid "Table of Contents"
+msgstr "Tabla de contenidos"
+
+#: classes/class-uagb-init-blocks.php:1431
+msgid "You have not added any Gravity Forms yet."
+msgstr "Todavía no has añadido ningún formulario de Gravity Forms."
+
+#: classes/class-uagb-init-blocks.php:658
+msgid "Please select a valid Gravity Form."
+msgstr "Por favor, selecciona un formulario válido de Gravity Forms."
+
+#: includes/blocks/marketing-button/block.php:16 dist/blocks-placeholder.js:27
+msgid "Marketing Button"
+msgstr "Botón de marketing"
+
+#: classes/class-uagb-init-blocks.php:939
+msgid "Please select a valid Contact Form 7."
+msgstr "Por favor, selecciona un formulario válido de Contact Form 7."
+
+#: classes/class-uagb-init-blocks.php:1398
+msgid "You have not added any Contact Form 7 yet."
+msgstr "Todavía no has añadido ningún formulario de Contact Form 7."
+
+#: classes/class-uagb-init-blocks.php:1384
+#: classes/class-uagb-init-blocks.php:1417
+msgid "Select Form"
+msgstr "Selecciona un formulario"
+
+#: classes/class-uagb-helper.php:499
+msgid "Full"
+msgstr "Completo"
+
+#: includes/blocks/blockquote/block.php:16 dist/blocks-placeholder.js:10
+msgid "Blockquote"
+msgstr "Cita"
+
+#: includes/blocks/restaurant-menu/block.php:16 dist/blocks-placeholder.js:32
+msgid "Price List"
+msgstr "Lista de precios"
+
+#: includes/blocks/column/block.php:14
+msgid "Column"
+msgstr "Columna"
+
+#: includes/blocks/columns/block.php:16
+msgid "Advanced Columns"
+msgstr "Columnas avanzadas"
+
+#: includes/blocks/call-to-action/block.php:16 dist/blocks-placeholder.js:12
+msgid "Call To Action"
+msgstr "Llamada a la acción"
+
+#: includes/blocks/post-masonry/block.php:16
+msgid "Post Masonry"
+msgstr "Muro de entradas"
+
+#: includes/blocks/post-carousel/block.php:16 dist/blocks-placeholder.js:30
+msgid "Post Carousel"
+msgstr "Carrusel de entradas"
+
+#: includes/blocks/post-timeline/block.php:16 dist/blocks-placeholder.js:47
+msgid "Post Timeline"
+msgstr "Cronología de entradas"
+
+#: blocks-config/post-timeline/class-uagb-post-timeline.php:907
+msgid "No posts found"
+msgstr "No se han encontrado entradas"
+
+#: includes/blocks/icon-list/attributes.php:19
+msgid "Label #1"
+msgstr "Etiqueta # 1"
+
+#: includes/blocks/icon-list/block.php:16 dist/blocks-placeholder.js:20
+msgid "Icon List"
+msgstr "Lista de iconos"
+
+#: includes/blocks/team/block.php:16 dist/blocks-placeholder.js:44
+msgid "Team"
+msgstr "Equipo"
+
+#: includes/blocks/social-share/block.php:16 dist/blocks-placeholder.js:39
+msgid "Social Share"
+msgstr "Compartir en redes sociales"
+
+#: includes/blocks/content-timeline/block.php:16 dist/blocks-placeholder.js:46
+msgid "Content Timeline"
+msgstr "Cronología de contenidos"
+
+#: includes/blocks/post-grid/block.php:16 dist/blocks-placeholder.js:31
+msgid "Post Grid"
+msgstr "Cuadrícula de entradas"
+
+#: admin-core/inc/admin-menu.php:372 admin-core/assets/build/dashboard-app.js:3
+#: admin-core/assets/build/dashboard-app.js:4
+msgid "Blocks"
+msgstr "Bloques"
+
+#: blocks-config/post-timeline/class-uagb-post-timeline.php:545
+#: blocks-config/post/class-uagb-post.php:624
+#: blocks-config/post/class-uagb-post.php:2292
+#: includes/blocks/post-carousel/attributes.php:122
+#: includes/blocks/post-grid/attributes.php:113
+#: includes/blocks/post-masonry/attributes.php:115
+msgid "Read More"
+msgstr "Leer más"
+
+#: includes/blocks/info-box/block.php:16 dist/blocks-placeholder.js:24
+msgid "Info Box"
+msgstr "Caja de información"
+
+#: blocks-config/uagb-controls/spectra-icons-v6-3.php:253
+msgid "Section"
+msgstr "Sección"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: ultimate-addons-for-gutenberg.php
+msgid "https://www.brainstormforce.com"
+msgstr "https://www.brainstormforce.com"
+
+#. Author of the plugin
+#: ultimate-addons-for-gutenberg.php
+msgid "Brainstorm Force"
+msgstr "Brainstorm Force"
+
+#: classes/class-uagb-loader.php:471
+msgid "Install Gutenberg"
+msgstr "Instalar Gutenberg"
