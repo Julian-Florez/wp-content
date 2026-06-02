@@ -1041,6 +1041,79 @@ function weirdlings_customization_whatsapp_url(): string {
 	return add_query_arg( 'text', $message, 'https://wa.me/' . weirdlings_contact_whatsapp_number() );
 }
 
+function weirdlings_forms_webhook_url(): string {
+	$webhook_url = defined( 'WEIRDLINGS_FORMS_WEBHOOK' ) && WEIRDLINGS_FORMS_WEBHOOK
+		? (string) WEIRDLINGS_FORMS_WEBHOOK
+		: 'https://weirdlings.app.n8n.cloud/webhook/17dcb42a-a583-43c1-ae65-96e35d942241';
+
+	return (string) apply_filters( 'weirdlings_forms_webhook_url', $webhook_url );
+}
+
+function weirdlings_prepare_uploaded_file_for_webhook( array $uploaded_file ): array {
+	$file_path = isset( $uploaded_file['file'] ) ? (string) $uploaded_file['file'] : '';
+
+	if ( '' === $file_path || ! file_exists( $file_path ) ) {
+		return array();
+	}
+
+	$file_contents = file_get_contents( $file_path );
+	if ( false === $file_contents ) {
+		return array();
+	}
+
+	return array(
+		'name'     => isset( $uploaded_file['name'] ) ? sanitize_file_name( (string) $uploaded_file['name'] ) : basename( $file_path ),
+		'type'     => isset( $uploaded_file['type'] ) ? sanitize_mime_type( (string) $uploaded_file['type'] ) : 'application/octet-stream',
+		'size'     => isset( $uploaded_file['size'] ) ? (int) $uploaded_file['size'] : (int) filesize( $file_path ),
+		'url'      => isset( $uploaded_file['url'] ) ? esc_url_raw( (string) $uploaded_file['url'] ) : '',
+		'content'  => base64_encode( $file_contents ),
+		'fieldKey' => isset( $uploaded_file['fieldKey'] ) ? sanitize_key( (string) $uploaded_file['fieldKey'] ) : '',
+	);
+}
+
+function weirdlings_send_form_submission_to_webhook( string $form_type, array $payload, array $attachments = array() ) {
+	$webhook_url = weirdlings_forms_webhook_url();
+
+	if ( '' === $webhook_url ) {
+		return new WP_Error( 'weirdlings_forms_webhook_missing', __( 'No se configuró el webhook de formularios.', 'weirdlings-modern' ) );
+	}
+
+	$body = array(
+		'form_type'   => $form_type,
+		'submitted_at' => gmdate( 'c' ),
+		'site'        => array(
+			'name'       => wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ),
+			'url'        => home_url( '/' ),
+			'admin_email' => get_option( 'admin_email' ),
+		),
+		'payload'     => $payload,
+		'attachments' => $attachments,
+	);
+
+	$response = wp_remote_post(
+		$webhook_url,
+		array(
+			'timeout'     => 45,
+			'headers'     => array(
+				'Content-Type' => 'application/json; charset=UTF-8',
+			),
+			'body'        => wp_json_encode( $body ),
+			'data_format' => 'body',
+		)
+	);
+
+	if ( is_wp_error( $response ) ) {
+		return $response;
+	}
+
+	$status_code = (int) wp_remote_retrieve_response_code( $response );
+	if ( $status_code < 200 || $status_code >= 300 ) {
+		return new WP_Error( 'weirdlings_forms_webhook_error', sprintf( __( 'El webhook respondió con el código %d.', 'weirdlings-modern' ), $status_code ) );
+	}
+
+	return true;
+}
+
 function weirdlings_contact_feedback_notice(): string {
 	$status = isset( $_GET['wl_contact'] ) ? sanitize_key( wp_unslash( $_GET['wl_contact'] ) ) : '';
 
@@ -1119,7 +1192,7 @@ function weirdlings_render_contact_form(): string {
 
 		<div class="wl-contact-form__actions">
 			<button class="wl-button wl-button--primary" type="submit"><?php esc_html_e( 'Enviar solicitud', 'weirdlings-modern' ); ?></button>
-			<p class="wl-contact-form__note"><?php esc_html_e( 'Respondemos desde el correo del sitio y, si lo necesitas, también por WhatsApp.', 'weirdlings-modern' ); ?></p>
+
 		</div>
 	</form>
 	<?php
@@ -1218,7 +1291,7 @@ function weirdlings_render_customization_form(): string {
 
 		<div class="wl-contact-form__actions">
 			<button class="wl-button wl-button--primary" type="submit"><?php esc_html_e( 'Enviar solicitud', 'weirdlings-modern' ); ?></button>
-			<p class="wl-contact-form__note"><?php esc_html_e( 'Te responderemos por correo y, si hace falta, seguiremos por WhatsApp.', 'weirdlings-modern' ); ?></p>
+			<p class="wl-contact-form__note"><?php esc_html_e( 'La solicitud se envía a n8n con todos los detalles para que luego te respondamos por correo.', 'weirdlings-modern' ); ?></p>
 		</div>
 	</form>
 	<?php
@@ -2117,30 +2190,28 @@ function weirdlings_handle_contact_form_submission(): void {
 		}
 
 		if ( ! empty( $uploaded['file'] ) ) {
-			$attachments[] = $uploaded['file'];
+			$attachment_payload = weirdlings_prepare_uploaded_file_for_webhook( $uploaded );
+			if ( ! empty( $attachment_payload ) ) {
+				$attachment_payload['fieldKey'] = 'contact_file';
+				$attachments[]                 = $attachment_payload;
+			}
 		}
 	}
 
-	$recipient    = get_option( 'admin_email' );
-	$site_name    = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
-	$mail_subject  = sprintf( __( 'Nuevo mensaje de servicio al cliente desde %s', 'weirdlings-modern' ), $site_name );
-	$mail_body     = "Nuevo mensaje recibido desde el formulario de contacto.\n\n";
-	$mail_body    .= 'Nombre: ' . $name . "\n";
-	$mail_body    .= 'Correo: ' . $email . "\n";
-
-	if ( '' !== $phone ) {
-		$mail_body .= 'Teléfono: ' . $phone . "\n";
-	}
-
-	$mail_body .= 'Asunto: ' . $subject . "\n\n";
-	$mail_body .= "Mensaje:\n" . $message . "\n";
-
-	$headers = array(
-		'Content-Type: text/plain; charset=UTF-8',
-		'Reply-To: ' . $name . ' <' . $email . '>',
+	$result = weirdlings_send_form_submission_to_webhook(
+		'contact',
+		array(
+			'name'    => $name,
+			'email'   => $email,
+			'phone'   => $phone,
+			'subject' => $subject,
+			'message' => $message,
+			'privacy' => true,
+		),
+		$attachments
 	);
 
-	if ( ! wp_mail( $recipient, $mail_subject, $mail_body, $headers, $attachments ) ) {
+	if ( is_wp_error( $result ) ) {
 		wp_safe_redirect( add_query_arg( 'wl_contact', 'error', $redirect ) );
 		exit;
 	}
@@ -2202,40 +2273,35 @@ function weirdlings_handle_customization_form_submission(): void {
 		}
 
 		if ( ! empty( $uploaded['file'] ) ) {
-			$attachments[] = $uploaded['file'];
+			$attachment_payload = weirdlings_prepare_uploaded_file_for_webhook( $uploaded );
+			if ( ! empty( $attachment_payload ) ) {
+				$attachment_payload['fieldKey'] = 'custom_file';
+				$attachments[]                 = $attachment_payload;
+			}
 		}
 	}
 
-	$recipient    = get_option( 'admin_email' );
-	$site_name    = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
-	$mail_subject  = sprintf( __( 'Nueva solicitud de personalizado desde %s', 'weirdlings-modern' ), $site_name );
-	$mail_body     = "Nueva solicitud de producto personalizado.\n\n";
-	$mail_body    .= 'Nombre: ' . $name . "\n";
-	$mail_body    .= 'Correo: ' . $email . "\n";
-
-	if ( '' !== $phone ) {
-		$mail_body .= 'WhatsApp: ' . $phone . "\n";
-	}
-
-	$mail_body .= 'Tipo de pieza: ' . $product . "\n";
-	$mail_body .= 'Tamaño aproximado: ' . ( '' !== $size ? $size : 'No indicado' ) . "\n";
-	$mail_body .= 'Colores preferidos: ' . ( '' !== $colors ? $colors : 'No indicados' ) . "\n";
-	$mail_body .= 'Accesorios o detalles: ' . ( '' !== $accessories ? $accessories : 'No indicados' ) . "\n";
-	$mail_body .= 'Expresión o rasgos: ' . ( '' !== $expression ? $expression : 'No indicados' ) . "\n";
-	$mail_body .= 'Nombre o bordado: ' . ( '' !== $text ? $text : 'No indicado' ) . "\n";
-	$mail_body .= 'Fecha ideal: ' . ( '' !== $deadline ? $deadline : 'No indicada' ) . "\n";
-	$mail_body .= "\nIdea general:\n" . $idea . "\n";
-
-	if ( '' !== $reference ) {
-		$mail_body .= "\nReferencias:\n" . $reference . "\n";
-	}
-
-	$headers = array(
-		'Content-Type: text/plain; charset=UTF-8',
-		'Reply-To: ' . $name . ' <' . $email . '>',
+	$result = weirdlings_send_form_submission_to_webhook(
+		'customization',
+		array(
+			'name'        => $name,
+			'email'       => $email,
+			'phone'       => $phone,
+			'product'     => $product,
+			'size'        => $size,
+			'colors'      => $colors,
+			'accessories' => $accessories,
+			'expression'  => $expression,
+			'text'        => $text,
+			'idea'        => $idea,
+			'reference'   => $reference,
+			'deadline'    => $deadline,
+			'privacy'     => true,
+		),
+		$attachments
 	);
 
-	if ( ! wp_mail( $recipient, $mail_subject, $mail_body, $headers, $attachments ) ) {
+	if ( is_wp_error( $result ) ) {
 		wp_safe_redirect( add_query_arg( 'wl_custom', 'error', $redirect ) );
 		exit;
 	}
